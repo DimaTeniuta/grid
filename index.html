@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <section>CSS Grid Layout</section>
+          <section>The best practice</section>
+          
+        </section>
+
+        <section>
+          <section>How to start using Grid?</section>
+          <section>
+            <p>set property on grid container</p>
+            <pre><code data-trim data-noescape>
+						.container {
+							display: grid;
+						}
+						</code></pre>
+          </section>
+          <section>
+            <p>set columns value</p>
+            <pre><code data-trim data-noescape>
+						.container {
+							display: grid;
+							grid-template-columns: 200px 1fr;
+						}
+						</code></pre>
+          </section>
+          <section>
+            <p>use percentages</p>
+            <pre><code data-trim data-noescape>
+						.container {
+							display: grid;
+							grid-template-columns: 33.33% 33.33% 33.33%;
+						}
+						</code></pre>
+          </section>
+          <section>
+            <p>or fr</p>
+            <pre><code data-trim data-noescape>
+						.container {
+							display: grid;
+							grid-template-columns: 1fr 1fr 1fr;
+						}
+						</code></pre>
+          </section>
+          <section>
+            <p>set rows value</p>
+            <pre><code data-trim data-noescape>
+						.container {
+							display: grid;
+							grid-template-columns: 200px 1fr 200px;
+							grid-template-rows: 100px 150px 50px 100px;
+						}
+						</code></pre>
+          </section>
+          <section>
+            <p>minmax function</p>
+            <pre><code data-trim data-noescape>
+					  .container {
+							display: grid;
+							grid-template-columns: 300px minmax(100px, 1fr) 10fr;
+							grid-template-rows: 100px 150px 50px 100px;
+							gap: 10px;
+						}
+						</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>Various properties</section>
+
+          <section>
+            <p>general properties</p>
+            <pre><code data-trim data-noescape>
+							.container {
+								display: grid;
+								grid-template-columns: 1fr 1fr;
+								grid-auto-rows: minmax(100px, 1fr);
+								gap: 10px;
+								align-items: end;
+								justify-items: end;
+							}
+						</code></pre>
+          </section>
+
+          <section>
+            <p>personal properties</p>
+            <pre><code data-trim data-noescape>
+							.item1 {
+								justify-self: start;
+								align-self: center;
+							}
+						</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>The position of the element on the page</section>
+          <section>
+            <pre><code data-trim data-noescape>
+							.container {
+								display: grid;
+								grid-template-columns: 1fr 1fr;
+								grid-auto-rows: minmax(100px 1fr);
+								gap: 10px;
+							}
+					
+							.item3 {
+								grid-column-start: 2;
+								grid-column-end: 3;
+								grid-row-start: 1;
+								grid-row-end: 4;
+							}
+						</code></pre>
+          </section>
+
+          <section>Short entry</section>
+          <section>
+            <pre><code data-trim data-noescape>
+              .item3 {
+                grid-column: 2/3;
+                grid-row: 3/6;
+              }
+						</code></pre>
+          </section>
+
+					<section>z-index</section>
+          <section>
+            <pre><code data-trim data-noescape>
+              .item3 {
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 4;
+                background-color: greenyellow;
+                z-index: 2;
+              }
+
+              .item4 {
+                background-color: red;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                z-index: 3;
+              }
+						</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>Grid template areas</section>
+          <section>
+            <pre><code data-trim data-noescape>
+              .container {
+                display: grid;
+                grid-template-areas: 'header header'
+                                     'sidebar main'
+                                     'footer footer';
+              }
+						</code></pre>
+          </section>
+
+          <section>
+            <pre><code data-trim data-noescape>
+              .header {
+                grid-area: header;
+              }
+
+              .sidebar {
+                grid-area: sidebar;
+              }
+
+              .main {
+                grid-area: main;
+              }
+
+              .footer {
+                grid-area: footer;
+              }
+						</code></pre>
+          </section>
+        </section>
+
+        <section>End</section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
